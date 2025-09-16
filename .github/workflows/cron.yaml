@@ -1,0 +1,15 @@
+name: Ping Troopod API
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes
+  workflow_dispatch:         # (optional) allows manual run
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API with today date
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          curl "https://functions.troopod.io/NQ==?date=$DATE"
