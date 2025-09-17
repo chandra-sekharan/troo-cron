@@ -1,0 +1,14 @@
+name: Ping Troopod API (10 days)
+
+on:
+  schedule:
+    - cron: "0 0 */10 * *"   # every 10 days at midnight UTC
+  workflow_dispatch:         # optional manual run
+
+jobs:
+  call-t10:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API with request=t10 (10 days)
+        run: |
+          curl "https://functions.troopod.io/MjY=?request=t10"
