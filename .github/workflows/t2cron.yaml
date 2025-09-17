@@ -1,0 +1,14 @@
+name: Ping Troopod API (2 days)
+
+on:
+  schedule:
+    - cron: "0 0 */2 * *"   # every 2 days at midnight UTC
+  workflow_dispatch:        # optional manual run
+
+jobs:
+  call-t2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API with request=t2 (2 days)
+        run: |
+          curl "https://functions.troopod.io/MjY=?request=t2"
